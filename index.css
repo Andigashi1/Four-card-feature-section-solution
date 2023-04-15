@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root {
+
+    --border-red: hsl(0, 78%, 62%);
+    --border-cyan: hsl(212, 86%, 64%);
+    --border-orange: hsl(34, 97%, 64%);
+    --border-blue: hsl(212, 86%, 64%);
+
+    --vdarkblue-clr: hsl(234, 12%, 34%);
+    --grayishblue-clr: hsl(229, 6%, 66%);
+    --vlightgray-clr: hsl(0, 0%, 98%);
+
+    --boxshadow: hsl(234, 12%, 34%, .25);
+
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--vlightgray-clr);
+    font-size: 0.975rem;
+}
+
+h1, h2 {
+    color: var(--vdarkblue-clr);
+}
+
+p {
+   color: var(--grayishblue-clr);
+   line-height: 1.8;
+}
+
+main {
+    width: 24em;
+    margin-bottom: 4em;
+    margin-inline: 1em;
+}
+
+.introduction {
+    text-align: center;
+    margin-bottom: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.introduction h1:first-child {
+    margin-top: 2em;
+    font-weight: 200;
+}
+
+.introduction h1:nth-child(2) {
+    margin-bottom: .4em;
+}
+
+
+.cards > *{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 1.6em 1.8em;
+    margin-bottom: 2.4em;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cards > * h2 {
+    margin-bottom: .5em;
+}
+
+.cards > * p {
+    margin-bottom: 2em;
+}
+
+.cards > * img {
+    align-self: end;
+}
+
+.border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 3px solid;
+    width: 100%;
+}
+
+.supervisor > .border {
+    border-color: var(--border-cyan);
+}
+
+.builder > .border {
+    border-color: var(--border-red);
+}
+
+.karma > .border {
+    border-color: var(--border-orange);
+}
+
+.calculator > .border {
+    border-color: var(--border-blue);
+}
+
+
+@media (min-width: 50em) {
+
+    main {
+        width: 80em;
+        max-width: 100%;
+        margin-bottom: 2em;
+        padding-inline: 1.2em;
+    }
+
+    .introduction {
+        margin-bottom: 2.5em;
+    }
+
+    .introduction p{
+        max-width: 40em;
+    }
+
+    .cards {
+        display: grid;
+        gap: 1.5em;
+        grid-template-areas: 
+            ' . builder . '
+            ' supervisor builder calculator '
+            ' supervisor karma calculator '
+            ' . karma . ';
+    }
+
+    .cards > * {
+        box-shadow: 0 15px 30px var(--boxshadow);
+    }
+
+    .supervisor {
+        grid-area: supervisor;
+    }
+
+    .builder {
+        grid-area: builder;
+        margin-bottom: 0;
+    }
+
+    .karma {
+        grid-area: karma;
+    }
+
+    .calculator {
+        grid-area: calculator;
+    }
+}
